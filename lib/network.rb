@@ -43,4 +43,31 @@ class Network
     end
     actors_by_show
   end
+
+  def network_actors
+    network_actors = []
+      @shows.each do |show|
+        network_actors.push(show.actors)
+      end
+    network_actors.flatten
+  end
+
+  def shows_by_actor
+    shows_by_actor = {}
+    network_actors.each do |actor|
+      shows_by_actor[actor] = actor_show_titles(actor)
+    end
+    shows_by_actor
+  end
+
+  def actor_show_titles(actor)
+    actor_show_titles = []
+    @actor = actor
+    @shows.each do |show|
+      show.characters.find_all do |character|
+        @actor == character.actor
+      end
+      actor_show_titles.uniq
+    end
+  end
 end

@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/character'
 require './lib/show'
 require 'mocha/minitest'
 
@@ -62,6 +61,6 @@ class ShowTest < MiniTest::Test
     character_2.stubs(:actor).returns("David Hasselhoff")
     show = Show.new("Knight Rider", "Glen Larson", [character_1, character_2])
 
-    assert_equal ["William Daniaels", "David Hasselhoff"], show.actors 
+    assert_equal ["William Daniaels", "David Hasselhoff"], show.actors
   end
 end

@@ -28,5 +28,11 @@ class Show
     highest.actor
   end
 
-  
+  def actors
+    actors = []
+    @characters.each do |character|
+      actors.push(character.actor)
+    end
+    actors
+  end
 end
